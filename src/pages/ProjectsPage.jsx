@@ -6,28 +6,41 @@ const SYSTEM_LOGS = [
     name: "Hansei App",
     category: "RAG ARCHITECTURE",
     summary: "Asynchronous processing backend integrating FastAPI systems with a high-fidelity Qdrant vector database index. Deploys custom contextual embeddings to cross-reference guidelines under strict latency constraints.",
-    stack: "FastAPI, Qdrant, React Native, Node.js, Transformers"
+    stack: "FastAPI, Qdrant, React Native, Node.js, Transformers",
+    links: [
+      { label: "[source_code]", url: "https://github.com/Rooneyish/Hansei" }
+    ]
   },
   {
     id: "02",
     name: "GoEmotions Multi-Label Classifier",
     category: "NLP OPTIMIZATION",
     summary: "Deep language parsing grid tracking 27 distinct conversational features. Built, optimized, and benchmarked custom Bi-LSTM layers and Transformer encoders from scratch without third-party abstraction modules.",
-    stack: "PyTorch, Transformers, NumPy, Tokenizers"
+    stack: "PyTorch, Transformers, NumPy, Tokenizers",
+    links: [
+      { label: "[source_code]", url: "https://github.com/Rooneyish/GoEmotion_Classification" }
+    ]
   },
   {
     id: "03",
     name: "Deforestation Detection",
     category: "COMPUTER VISION",
     summary: "Satellite terrain classification grid processing multi-spectral arrays. Benchmarked deep convolutional feature map extractors against optimized ResNet layers with real-time analytics verification.",
-    stack: "TensorFlow, OpenCV, Gradio, Sci-Kit Learn"
+    stack: "TensorFlow, OpenCV, Gradio, Sci-Kit Learn",
+    links: [
+      { label: "[source_code]", url: "https://github.com/Rooneyish/deforestation_detection" }
+    ]
   },
   {
     id: "04",
     name: "Devanagari OCR",
     category: "COMPUTER VISION PIPELINE",
     summary: "Localized script character-level recognition engine handling complex conjoined ligatures. Optimized performance by compiling model structures down to MobileNetV2 parameters.",
-    stack: "PyTorch, MobileNetV2, FastAPI, Docker"
+    stack: "PyTorch, MobileNetV2, FastAPI, Docker",
+    links: [
+      { label: "[api_source]", url: "https://github.com/Rooneyish/devanagari_ocr_app" },
+      { label: "[model_source]", url: "https://github.com/Rooneyish/devanagari_ocr" }
+    ]
   }
 ];
 
@@ -59,10 +72,19 @@ export default function ProjectsPage() {
                 <div><span className="text-scholz-text font-bold">[engine]</span> {log.stack}</div>
               </div>
 
-              <div className="pt-2">
-                <a href="https://github.com/Rooneyish" target="_blank" rel="noreferrer" className="text-xs text-scholz-text font-bold hover:underline">
-                  [source_code]
-                </a>
+              {/* Dynamic Action Link Hub */}
+              <div className="pt-2 flex flex-wrap gap-4">
+                {log.links.map((link, idx) => (
+                  <a 
+                    key={idx}
+                    href={link.url} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="text-xs text-scholz-text font-bold hover:underline"
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
             </div>
           ))}
