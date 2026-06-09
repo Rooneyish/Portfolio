@@ -1,45 +1,50 @@
 import React from 'react';
 
-export default function ResumePage() {
-  // Path pointing directly to your file inside the public directory
-  const resumePdfPath = "src/assets/Ronish_Prajapati.pdf";
+export default function Resume() {
+  // Path points directly to public/ronish_prajapati.pdf via absolute routing
+  const resumePdfPath = "/ronish_prajapati.pdf";
 
   return (
-    <div className="w-full px-4 py-8 font-mono text-sm">
-      <div className="max-w-4xl mx-auto space-y-4">
-        
-        {/* Action Header bar */}
-        <div className="flex justify-between items-center border-b border-scholz-line pb-3">
-          <div>
-            <h2 className="text-xs font-bold text-scholz-text uppercase tracking-widest">
-              RONISH_PRAJAPATI.pdf
-            </h2>
-            <p className="text-[10px] text-scholz-muted mt-0.5">// interactive_viewer</p>
-          </div>
-          
-          {/* Native Download Action Link */}
-          <a 
-            href={resumePdfPath} 
-            download="Ronish_Prajapati_Resume.pdf"
-            className="flex items-center gap-2 text-xs bg-scholz-text text-white px-3 py-1.5 font-bold hover:opacity-80 transition-opacity select-none"
-          >
-            <span>↓</span> DOWNLOAD_RAW
-          </a>
+    <div className="w-full min-h-screen bg-white text-black font-mono p-4">
+      {/* Header Navigation Link */}
+      <div className="text-center text-xs uppercase tracking-widest mb-6">
+        <span className="font-bold">Ronish Prajapati</span>
+        <div className="mt-1 space-x-2 text-blue-600">
+          <a href="/projects" className="hover:underline">projects</a>
+          <span>/</span>
+          <a href="/resume" className="underline">resume</a>
+          <span>/</span>
+          <a href="/about" className="hover:underline">about</a>
+          <span>/</span>
+          <a href="/photography" className="hover:underline">photography</a>
+          <span>/</span>
+          <a href="/contact" className="hover:underline">contact</a>
         </div>
+      </div>
 
-        {/* 
-          PDF Renderer Wrapper
-          Using a responsive viewport height block (h-[75vh]) to ensure 
-          the document takes center stage cleanly on different monitor sizes.
-        */}
-        <div className="w-full h-[75vh] border border-scholz-line/60 bg-white">
-          <iframe
-            src={`${resumePdfPath}#view=FitH`}
-            title="Ronish Prajapati Resume"
-            className="w-full h-full border-none"
-          />
-        </div>
+      <hr className="border-black mb-2" />
 
+      {/* Main Bar Info */}
+      <div className="flex justify-between items-center text-sm font-bold tracking-tight mb-4">
+        <span>RONISH_PRAJAPATI.PDF</span>
+        <a 
+          href={resumePdfPath} 
+          download="Ronish_Prajapati_Resume.pdf"
+          className="text-blue-600 hover:underline text-xs"
+        >
+          ↓ DOWNLOAD_RAW
+        </a>
+      </div>
+
+      <div className="text-xs text-gray-500 mb-2">// interactive_viewer</div>
+      
+      {/* PDF Container Frame */}
+      <div className="border border-black w-full h-[80vh] bg-gray-100">
+        <iframe 
+          src={resumePdfPath}
+          title="Ronish Prajapati Resume Viewer"
+          className="w-full h-full border-none"
+        />
       </div>
     </div>
   );
