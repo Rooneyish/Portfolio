@@ -1,26 +1,19 @@
 import React from 'react';
 
 export default function Resume() {
-  // Path points directly to public/ronish_prajapati.pdf via absolute routing
-  const resumePdfPath = "/ronish_prajapati.pdf";
+  // Dynamically resolve the PDF location from src/assets/ for production builds
+  const getPdfUrl = () => {
+    return new URL('../assets/Ronish_Prajapati.pdf', import.meta.url).href;
+  };
+
+  const resumePdfPath = getPdfUrl();
 
   return (
     <div className="w-full min-h-screen bg-white text-black font-mono p-4">
-      {/* Header Navigation Link */}
-      <div className="text-center text-xs uppercase tracking-widest mb-6">
-        <span className="font-bold">Ronish Prajapati</span>
-        <div className="mt-1 space-x-2 text-blue-600">
-          <a href="/projects" className="hover:underline">projects</a>
-          <span>/</span>
-          <a href="/resume" className="underline">resume</a>
-          <span>/</span>
-          <a href="/about" className="hover:underline">about</a>
-          <span>/</span>
-          <a href="/photography" className="hover:underline">photography</a>
-          <span>/</span>
-          <a href="/contact" className="hover:underline">contact</a>
-        </div>
-      </div>
+      {/* 
+        NOTE: The duplicate navigation bar has been removed from this file. 
+        Your main App wrapper handles the top navigation bar globally!
+      */}
 
       <hr className="border-black mb-2" />
 
