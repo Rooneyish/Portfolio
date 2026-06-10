@@ -13,32 +13,18 @@ export default function AboutPage() {
         <div className="flex flex-col md:flex-row gap-12 items-start">
 
           {/* Profile Image Column */}
-          <div className="w-full md:w-1/6 flex flex-col items-center md:items-start space-y-4">
-
-            {/* IMAGE + CIRCLE WRAPPER */}
-            <div className="relative flex justify-center md:justify-start w-full">
-
-              {/* Background circle behind head */}
-              <div className="absolute top-10 left-1/2 md:left-10 -translate-x-1/2 md:translate-x-0
-                              w-[320px] h-[320px] rounded-full
-                              bg-scholz-muted/10 blur-2xl">
-              </div>
-
-              {/* Profile Image */}
-              <img
-                src={profileImg}
-                alt="Ronish Prajapati"
-                className="relative z-10 w-[700px] h-[500px] object-cover grayscale contrast-115"
-                loading="eager"
-              />
-            </div>
-
-            {/* Name */}
+          <div className="w-full md:w-56 flex-shrink-0 flex flex-col items-center md:items-start space-y-3">
+            <img
+              src={profileImg}
+              alt="Ronish Prajapati"
+              className="w-full h-auto object-cover object-top grayscale"
+              loading="eager"
+            />
             <div className="text-center md:text-left select-none">
-              <h3 className="text-xs font-bold text-scholz-text tracking-tight whitespace-nowrap">
+              <h3 className="text-xs font-bold text-scholz-text tracking-tight">
                 Ronish Prajapati
               </h3>
-              <p className="text-[9px] text-scholz-muted mt-0.5 whitespace-nowrap">
+              <p className="text-[9px] text-scholz-muted mt-0.5">
                 // AI Engineer in progress
               </p>
             </div>
@@ -52,7 +38,6 @@ export default function AboutPage() {
               <h4 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-4 border-b border-scholz-line pb-2 select-none">
                 / academic_matrix
               </h4>
-
               <div className="space-y-3">
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 font-bold">
                   <span className="text-scholz-text text-sm">
@@ -62,7 +47,6 @@ export default function AboutPage() {
                     [current_track]
                   </span>
                 </div>
-
                 <p className="text-scholz-muted text-xs sm:text-sm leading-relaxed text-justify">
                   B.Sc. (Hons) in Computing with a specialized focus in Artificial Intelligence.
                   Operating as an AI Engineer in Progress, prioritizing foundational model mastery
@@ -76,11 +60,10 @@ export default function AboutPage() {
               <h4 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-4 border-b border-scholz-line pb-2 select-none">
                 / hardware_profile
               </h4>
-
               <ul className="list-none space-y-2 text-xs sm:text-sm text-scholz-muted">
-                <li>• <span className="text-scholz-text font-bold">os:</span> Ubuntu Linux</li>
-                <li>• <span className="text-scholz-text font-bold">gpu:</span> NVIDIA RTX 5060 Laptop GPU</li>
-                <li>• <span className="text-scholz-text font-bold">env:</span> 2025 Legion 5</li>
+                <li>· <span className="text-scholz-text font-bold">os:</span> Ubuntu Linux</li>
+                <li>· <span className="text-scholz-text font-bold">gpu:</span> NVIDIA RTX 5060 Laptop GPU</li>
+                <li>· <span className="text-scholz-text font-bold">env:</span> 2025 Legion 5</li>
               </ul>
             </div>
 
@@ -89,24 +72,19 @@ export default function AboutPage() {
               <h4 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-4 border-b border-scholz-line pb-2 select-none">
                 / key_competencies
               </h4>
-
               <ul className="list-none space-y-4 text-xs sm:text-sm text-scholz-muted">
-
                 <li className="leading-relaxed">
                   <span className="text-scholz-text font-bold block mb-0.5">[architectures]</span>
                   Transformers / BERT / Bi-LSTM / Seq2Seq / CNN / MobileNetV2
                 </li>
-
                 <li className="leading-relaxed">
                   <span className="text-scholz-text font-bold block mb-0.5">[languages]</span>
                   Python / Java / JavaScript / HTML / CSS
                 </li>
-
                 <li className="leading-relaxed">
                   <span className="text-scholz-text font-bold block mb-0.5">[frameworks]</span>
                   PyTorch / TensorFlow / FastAPI / Node.js / React Native / Tailwind CSS / Docker
                 </li>
-
                 <li className="leading-relaxed">
                   <span className="text-scholz-text font-bold block mb-0.5">[data_vector_engines]</span>
                   Qdrant / NumPy / Scikit-learn / OpenCV / Tokenizers / Hugging Face
@@ -119,24 +97,19 @@ export default function AboutPage() {
               <h4 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-4 border-b border-scholz-line pb-2 select-none">
                 / besides_engineering
               </h4>
-
               <ul className="list-none space-y-4 text-xs sm:text-sm text-scholz-muted">
-
                 <li className="leading-relaxed">
                   <span className="text-scholz-text font-bold block mb-0.5">[camera_gears]</span>
                   Canon EOS 750D / Sony Alpha 7 III (@depict) / DJI Osmo Action
                 </li>
-
                 <li className="leading-relaxed">
                   <span className="text-scholz-text font-bold block mb-0.5">[instruments]</span>
                   Flute / Sarangi / GarageBand iPad
                 </li>
-
                 <li className="leading-relaxed">
                   <span className="text-scholz-text font-bold block mb-0.5">[football]</span>
                   Goalkeeper / Manchester United Supporter / Glory Glory Man UTD / FIFA Gamer
                 </li>
-
               </ul>
             </div>
 

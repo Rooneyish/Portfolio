@@ -1,20 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-  scroll-behavior: smooth;
-  background-color: #FFFFFF;
-}
-
-body {
-  background-color: #FFFFFF;
-  color: #000000;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Make sure links don't have messy underlining unless hovered */
-a {
-  text-decoration: none;
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'scholz-text': '#0a0a0a',
+        'scholz-muted': '#71717a',
+        'scholz-line': '#e4e4e7',
+      },
+      animation: {
+        blink: 'blink 1.1s step-end infinite',
+      },
+      keyframes: {
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
+      },
+    },
+  },
+  plugins: [],
 }

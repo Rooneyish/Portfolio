@@ -8,6 +8,7 @@ import PhotographyPage from './pages/PhotographyPage';
 import AboutPage from './pages/AboutPage';
 import ResumePage from './pages/ResumePage';
 import ContactPage from './pages/ContactPage';
+import Footer from './components/Footer';
 
 // Invisible wrapper to inject powerful Schema.org structured data for Google bots
 function SEORootWrapper({ children }) {
@@ -72,6 +73,7 @@ export default function App() {
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </SEORootWrapper>
     </Router>
