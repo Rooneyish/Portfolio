@@ -35,10 +35,10 @@ export default function Navbar() {
           </Link>
           <span>//</span>
           <Link
-            to="/photography"
+            to="/gallery"
             className="text-scholz-text hover:underline font-medium"
           >
-            photography
+            gallery
           </Link>
           <span>//</span>
           <Link

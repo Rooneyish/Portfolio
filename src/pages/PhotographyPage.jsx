@@ -1,66 +1,77 @@
 import React from 'react';
 
-export default function Photography() {
+// Eagerly grab references to all images inside src/assets/gallery/ at build time
+const globbedImages = import.meta.glob('../assets/gallery/*.jpg', { eager: true });
+
+export default function PhotographyPage() {
   const photoLedger = [
-    { id: 1, label: "Machapuchhre Base Camp", fileName: "photo_1.jpg" },
-    { id: 2, label: "Monekey 1", fileName: "photo_2.jpg" },
-    { id: 3, label: "Monekey 2", fileName: "photo_3.jpg" },
-    { id: 4, label: "The Taxi", fileName: "photo_4.jpg" },
-    { id: 5, label: "The Village", fileName: "photo_5.jpg" },
-    { id: 6, label: "Pizza House", fileName: "photo_6.jpg" },
-    { id: 7, label: "The Nature's Frame", fileName: "photo_7.jpg" },
-    { id: 8, label: "The Valley", fileName: "photo_8.jpg" },
-    { id: 9, label: "The Gumba", fileName: "photo_9.jpg" },
-    { id: 10, label: "The Buildings of KTM", fileName: "photo_10.jpg" },
-    { id: 11, label: "The Fall", fileName: "photo_11.jpg" },
-    { id: 12, label: "The Fish Tail", fileName: "photo_12.jpg" },
-    { id: 13, label: "The Annapurna", fileName: "photo_13.jpg" }
+    { id: 1, title: "Machapuchhre Base Camp", location: "M.B.C, Nepal", date: "2024", fileName: "photo_1.jpg" },
+    { id: 2, title: "Monkey 1", location: "Kathmandu, Nepal", date: "2024", fileName: "photo_2.jpg" },
+    { id: 3, title: "Monkey 2", location: "Kathmandu, Nepal", date: "2024", fileName: "photo_3.jpg" },
+    { id: 4, title: "The Taxi", location: "Pokhara, Nepal", date: "2024", fileName: "photo_4.jpg" },
+    { id: 5, title: "The Village", location: "Ghandruk, Nepal", date: "2024", fileName: "photo_5.jpg" },
+    { id: 6, title: "Pizza House", location: "Kathmandu, Nepal", date: "2024", fileName: "photo_6.jpg" },
+    { id: 7, title: "The Nature's Frame", location: "Pokhara, Nepal", date: "2024", fileName: "photo_7.jpg" },
+    { id: 8, title: "The Valley", location: "Mustang, Nepal", date: "2024", fileName: "photo_8.jpg" },
+    { id: 9, title: "The Gumba", location: "Mustang, Nepal", date: "2024", fileName: "photo_9.jpg" },
+    { id: 10, title: "The Buildings of KTM", location: "Kathmandu, Nepal", date: "2024", fileName: "photo_10.jpg" },
+    { id: 11, title: "The Fall", location: "Dhumpus, Nepal", date: "2024", fileName: "photo_11.jpg" },
+    { id: 12, title: "The Fish Tail", location: "Pokhara, Nepal", date: "2024", fileName: "photo_12.jpg" },
+    { id: 13, title: "The Annapurna", location: "A.B.C Trail, Nepal", date: "2024", fileName: "photo_13.jpg" }
   ];
 
+  // Dynamic path helper checking Vite's build-time lookup table
   const getImageUrl = (fileName) => {
-    return new URL(`../assets/gallery/${fileName}`, import.meta.url).href;
+    const fallbackUrl = new URL(`../assets/gallery/${fileName}`, import.meta.url).href;
+    const globPath = `../assets/gallery/${fileName}`;
+    
+    return globbedImages[globPath]?.default || fallbackUrl;
   };
 
   return (
-    <div className="w-full min-h-screen bg-white text-black font-mono p-4">
-      <h1 className="text-base font-bold uppercase mb-6 tracking-wider">/ VISUAL_LEDGER</h1>
+    <div className="w-full px-4 py-8 font-mono text-sm bg-white text-black min-h-screen">
+      {/* Container wrapper balances screen space usage */}
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-6 border-b border-gray-200 pb-2 select-none">
+          / visual_ledger
+        </h2>
 
-      {/* 
-        Pinterest Masonry Container using CSS columns.
-        - columns-1 on small mobile screens
-        - columns-2 on medium tablets
-        - columns-3 on large screens
-        - gap-6 keeps the vertical streams uniformly separated
-      */}
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 [column-fill:_balance]">
-        {photoLedger.map((photo) => (
-          <div 
-            key={photo.id} 
-            className="break-inside-avoid flex flex-col space-y-2 mb-6"
-          >
-            <span className="text-xs text-gray-700 font-medium">// {photo.label}</span>
-            <div className="border border-gray-200 overflow-hidden bg-gray-50">
+        {/* 
+          Native CSS Masonry:
+          Dense layouts scaling columns from 3 up to 6 on wider displays
+        */}
+        <div className="columns-3 sm:columns-4 md:columns-5 lg:columns-6 gap-2 [column-fill:_balance]">
+          {photoLedger.map((photo) => (
+            <div 
+              key={photo.id} 
+              className="break-inside-avoid w-full mb-2 group relative cursor-crosshair overflow-hidden bg-black"
+            >
               <img 
                 src={getImageUrl(photo.fileName)} 
-                alt={photo.label}
-                /* 
-                  CRUCIAL FOR PINTEREST EFFECT: 
-                  We remove the static aspect-[4/3] and h-full classes. 
-                  h-auto lets the image maintain its natural, varying heights!
-                */
-                className="w-full h-auto object-cover display-block"
+                alt={photo.title}
+                className="w-full h-auto block grayscale hover:grayscale-0 opacity-90 hover:opacity-100 transition-all duration-300"
+                loading="lazy"
                 onError={(e) => {
                   e.target.onerror = null; 
                   e.target.style.display = 'none';
                   const msg = document.createElement('p');
-                  msg.className = 'text-[10px] text-red-500 p-4 text-center';
-                  msg.innerText = `Missing asset: src/assets/gallery/${photo.fileName}`;
+                  msg.className = 'text-[9px] text-red-500 p-2 text-center bg-zinc-900 border border-zinc-800';
+                  msg.innerText = `ERR: ${photo.fileName}`;
                   e.target.parentNode.appendChild(msg);
                 }}
               />
+              
+              {/* Micro text overlay frame */}
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 absolute bottom-0 left-0 right-0 bg-black/90 text-white p-1.5 text-[9px] font-mono flex flex-col pointer-events-none leading-none">
+                <div className="font-bold truncate">{photo.title}</div>
+                <div className="flex justify-between items-center mt-1 text-[8px] text-gray-400">
+                  <span className="truncate mr-1">{photo.location}</span>
+                  <span>'{photo.date.slice(-2)}</span>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
