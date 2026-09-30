@@ -31,7 +31,7 @@ export default function PhotographyPage() {
       <SEOHelper
         title="Photography Gallery | Ronish Prajapati"
         description="Explore Ronish Prajapati's photography portfolio featuring landscapes, wildlife, street photography, and travel images from Nepal and beyond."
-        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        imageUrl="https://www.ronishprajapati.com.np/og-image.jpg"
         type="website"
       />
       <div className="w-full px-6 py-10 font-mono min-h-screen">

@@ -7,7 +7,7 @@ export default function ContactPage() {
       <SEOHelper
         title="Contact | Ronish Prajapati"
         description="Get in touch with Ronish Prajapati for collaborations on AI research, machine learning projects, software development, or photography inquiries."
-        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        imageUrl="https://www.ronishprajapati.com.np/og-image.jpg"
         type="website"
       />
       <div className="px-6 py-16 font-mono text-sm flex flex-col justify-center min-h-[50vh]">

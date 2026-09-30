@@ -18,7 +18,7 @@ function SEORootWrapper({ children }) {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Ronish Prajapati",
-      "url": "https://ronishprajapati.com.np",
+      "url": "https://www.ronishprajapati.com.np",
       "jobTitle": "AI Researcher & Software Engineer",
       "alumniOf": {
         "@type": "EducationalOrganization",
@@ -49,7 +49,7 @@ function SEORootWrapper({ children }) {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Ronish Prajapati Portfolio",
-      "url": "https://ronishprajapati.com.np",
+      "url": "https://www.ronishprajapati.com.np",
       "description": "Personal portfolio showcasing AI research, machine learning projects, software development, and photography by Ronish Prajapati"
     };
 

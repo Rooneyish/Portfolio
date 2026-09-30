@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
 
-const siteUrl = "https://ronishprajapati.com.np";
+const siteUrl = "https://www.ronishprajapati.com.np";
 
 const SEOHelper = ({ title, description, imageUrl, type = "website" }) => {
   const { pathname } = useLocation();

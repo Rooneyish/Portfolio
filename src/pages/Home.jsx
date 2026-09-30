@@ -7,7 +7,7 @@ export default function Home() {
       <SEOHelper
         title="Ronish Prajapati | AI Researcher & Software Engineer"
         description="Personal portfolio of Ronish Prajapati showcasing expertise in Machine Learning, Natural Language Processing, and full-stack development. AI researcher and software engineer based in Kathmandu, Nepal."
-        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        imageUrl="https://www.ronishprajapati.com.np/og-image.jpg"
         type="website"
       />
       <div className="min-h-[60vh] flex flex-col justify-center px-6 py-12 font-mono">

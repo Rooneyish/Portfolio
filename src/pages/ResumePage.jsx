@@ -9,7 +9,7 @@ export default function Resume() {
       <SEOHelper
         title="Resume | Ronish Prajapati"
         description="View Ronish Prajapati's resume highlighting education, work experience, projects, and technical skills in AI, machine learning, and software engineering."
-        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        imageUrl="https://www.ronishprajapati.com.np/og-image.jpg"
         type="website"
       />
       <div className="w-full min-h-screen font-mono px-6 py-8">

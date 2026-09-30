@@ -8,7 +8,7 @@ export default function AboutPage() {
       <SEOHelper
         title="About Ronish Prajapati | AI Engineer & Photographer"
         description="Learn about Ronish Prajapati's background, education, technical skills, and personal interests as an AI researcher, software engineer, and photographer."
-        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        imageUrl="https://www.ronishprajapati.com.np/og-image.jpg"
         type="website"
       />
       <div className="px-6 py-16 font-mono text-sm">

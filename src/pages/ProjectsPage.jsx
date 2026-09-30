@@ -51,7 +51,7 @@ export default function ProjectsPage() {
       <SEOHelper
         title="Projects | Ronish Prajapati Portfolio"
         description="Explore Ronish Prajapati's technical projects including AI/ML applications, computer vision systems, NLP models, and full-stack developments."
-        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        imageUrl="https://www.ronishprajapati.com.np/og-image.jpg"
         type="website"
       />
       <div className="px-6 py-16 font-mono">
