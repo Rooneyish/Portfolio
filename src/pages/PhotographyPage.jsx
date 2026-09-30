@@ -1,4 +1,5 @@
 import React from 'react';
+import SEOHelper from '../components/SEOHelper';
 
 const globbedImages = import.meta.glob('../assets/gallery/*.jpg', { eager: true });
 
@@ -26,48 +27,54 @@ export default function PhotographyPage() {
   };
 
   return (
-    <div className="w-full px-6 py-10 font-mono min-h-screen">
+    <>
+      <SEOHelper
+        title="Photography Gallery | Ronish Prajapati"
+        description="Explore Ronish Prajapati's photography portfolio featuring landscapes, wildlife, street photography, and travel images from Nepal and beyond."
+        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        type="website"
+      />
+      <div className="w-full px-6 py-10 font-mono min-h-screen">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-8 border-b border-scholz-line pb-2 select-none">
+            / visual_ledger
+          </h2>
+        </div>
 
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-8 border-b border-scholz-line pb-2 select-none">
-          / visual_ledger
-        </h2>
-      </div>
+        {/* Full-width masonry — 2 cols mobile, 3 tablet, 4 desktop */}
+        <div className="max-w-6xl mx-auto columns-2 sm:columns-3 lg:columns-4 gap-3 [column-fill:_balance]">
+          {photoLedger.map((photo) => (
+            <div
+              key={photo.id}
+              className="break-inside-avoid mb-3 group relative overflow-hidden bg-black cursor-crosshair"
+            >
+              <img
+                src={getImageUrl(photo.fileName)}
+                alt={photo.title}
+                className="w-full h-auto block grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.style.display = 'none';
+                  const msg = document.createElement('p');
+                  msg.className = 'text-[9px] text-red-500 p-2 text-center bg-zinc-900 border border-zinc-800';
+                  msg.innerText = `ERR: ${photo.fileName}`;
+                  e.target.parentNode.appendChild(msg);
+                }}
+              />
 
-      {/* Full-width masonry — 2 cols mobile, 3 tablet, 4 desktop */}
-      <div className="max-w-6xl mx-auto columns-2 sm:columns-3 lg:columns-4 gap-3 [column-fill:_balance]">
-        {photoLedger.map((photo) => (
-          <div
-            key={photo.id}
-            className="break-inside-avoid mb-3 group relative overflow-hidden bg-black cursor-crosshair"
-          >
-            <img
-              src={getImageUrl(photo.fileName)}
-              alt={photo.title}
-              className="w-full h-auto block grayscale group-hover:grayscale-0 opacity-90 group-hover:opacity-100 transition-all duration-300"
-              loading="lazy"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.style.display = 'none';
-                const msg = document.createElement('p');
-                msg.className = 'text-[9px] text-red-500 p-2 text-center bg-zinc-900 border border-zinc-800';
-                msg.innerText = `ERR: ${photo.fileName}`;
-                e.target.parentNode.appendChild(msg);
-              }}
-            />
-
-            {/* Hover overlay */}
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 absolute bottom-0 left-0 right-0 bg-black/85 text-white px-2.5 py-2 pointer-events-none">
-              <p className="text-[10px] font-bold truncate leading-tight">{photo.title}</p>
-              <div className="flex justify-between items-center mt-0.5">
-                <span className="text-[9px] text-gray-400 truncate mr-1">{photo.location}</span>
-                <span className="text-[9px] text-gray-500 flex-shrink-0">'{photo.date.slice(-2)}</span>
+              {/* Hover overlay */}
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-150 absolute bottom-0 left-0 right-0 bg-black/85 text-white px-2.5 py-2 pointer-events-none">
+                <p className="text-[10px] font-bold truncate leading-tight">{photo.title}</p>
+                <div className="flex justify-between items-center mt-0.5">
+                  <span className="text-[9px] text-gray-400 truncate mr-1">{photo.location}</span>
+                  <span className="text-[9px] text-gray-500 flex-shrink-0">'{photo.date.slice(-2)}</span>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-
-    </div>
+    </>
   );
 }

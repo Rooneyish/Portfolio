@@ -13,7 +13,8 @@ import Footer from './components/Footer';
 // Invisible wrapper to inject powerful Schema.org structured data for Google bots
 function SEORootWrapper({ children }) {
   useEffect(() => {
-    const schemaData = {
+    // Person schema for Ronish
+    const personSchema = {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Ronish Prajapati",
@@ -43,15 +44,38 @@ function SEORootWrapper({ children }) {
       ]
     };
 
+    // WebSite schema for the portfolio site
+    const websiteSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ronish Prajapati Portfolio",
+      "url": "https://ronishprajapati.com.np",
+      "description": "Personal portfolio showcasing AI research, machine learning projects, software development, and photography by Ronish Prajapati",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ronishprajapati.com.np/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    };
+
     // Ensure we don't accidentally append multiple script tags during hot-reloads
-    let script = document.getElementById('jsonld-schema');
-    if (!script) {
-      script = document.createElement('script');
-      script.id = 'jsonld-schema';
-      script.type = 'application/ld+json';
-      document.head.appendChild(script);
+    let personScript = document.getElementById('jsonld-person-schema');
+    if (!personScript) {
+      personScript = document.createElement('script');
+      personScript.id = 'jsonld-person-schema';
+      personScript.type = 'application/ld+json';
+      document.head.appendChild(personScript);
     }
-    script.text = JSON.stringify(schemaData);
+    personScript.text = JSON.stringify(personSchema);
+
+    let websiteScript = document.getElementById('jsonld-website-schema');
+    if (!websiteScript) {
+      websiteScript = document.createElement('script');
+      websiteScript.id = 'jsonld-website-schema';
+      websiteScript.type = 'application/ld+json';
+      document.head.appendChild(websiteScript);
+    }
+    websiteScript.text = JSON.stringify(websiteSchema);
   }, []);
 
   return children;

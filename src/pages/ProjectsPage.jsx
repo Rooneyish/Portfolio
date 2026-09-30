@@ -1,4 +1,5 @@
 import React from 'react';
+import SEOHelper from '../components/SEOHelper';
 
 const SYSTEM_LOGS = [
   {
@@ -46,50 +47,58 @@ const SYSTEM_LOGS = [
 
 export default function ProjectsPage() {
   return (
-    <div className="px-6 py-16 font-mono">
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-12 border-b border-scholz-line pb-2">
-          / artifacts_directory
-        </h2>
+    <>
+      <SEOHelper
+        title="Projects | Ronish Prajapati Portfolio"
+        description="Explore Ronish Prajapati's technical projects including AI/ML applications, computer vision systems, NLP models, and full-stack developments."
+        imageUrl="https://ronishprajapati.com.np/og-image.jpg"
+        type="website"
+      />
+      <div className="px-6 py-16 font-mono">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-xs font-bold text-scholz-muted uppercase tracking-widest mb-12 border-b border-scholz-line pb-2">
+            / artifacts_directory
+          </h2>
 
-        <div className="space-y-14">
-          {SYSTEM_LOGS.map((log) => (
-            <div key={log.id} className="space-y-3 group">
-              <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 border-b border-scholz-line/40 pb-1">
-                <h3 className="text-sm font-bold text-scholz-text group-hover:underline cursor-pointer">
-                  {log.id}. {log.name}
-                </h3>
-                <span className="text-[10px] text-scholz-muted font-normal uppercase tracking-wider">
-                  // {log.category}
-                </span>
+          <div className="space-y-14">
+            {SYSTEM_LOGS.map((log) => (
+              <div key={log.id} className="space-y-3 group">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 border-b border-scholz-line/40 pb-1">
+                  <h3 className="text-sm font-bold text-scholz-text group-hover:underline cursor-pointer">
+                    {log.id}. {log.name}
+                  </h3>
+                  <span className="text-[10px] text-scholz-muted font-normal uppercase tracking-wider">
+                    // {log.category}
+                  </span>
+                </div>
+
+                <p className="text-scholz-muted text-xs sm:text-sm leading-relaxed text-justify">
+                  {log.summary}
+                </p>
+
+                <div className="text-xs space-y-1 pt-1 text-scholz-muted">
+                  <div><span className="text-scholz-text font-bold">[engine]</span> {log.stack}</div>
+                </div>
+
+                {/* Dynamic Action Link Hub */}
+                <div className="pt-2 flex flex-wrap gap-4">
+                  {log.links.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs text-scholz-text font-bold hover:underline"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
-
-              <p className="text-scholz-muted text-xs sm:text-sm leading-relaxed text-justify">
-                {log.summary}
-              </p>
-
-              <div className="text-xs space-y-1 pt-1 text-scholz-muted">
-                <div><span className="text-scholz-text font-bold">[engine]</span> {log.stack}</div>
-              </div>
-
-              {/* Dynamic Action Link Hub */}
-              <div className="pt-2 flex flex-wrap gap-4">
-                {log.links.map((link, idx) => (
-                  <a 
-                    key={idx}
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="text-xs text-scholz-text font-bold hover:underline"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
