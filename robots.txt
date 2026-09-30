@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Reference your absolute sitemap location link below
+Sitemap: https://ronishprajapati.com.np/sitemap.xml
