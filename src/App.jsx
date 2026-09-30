@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -31,7 +31,7 @@ function SEORootWrapper({ children }) {
       },
       "sameAs": [
         "https://github.com/Rooneyish",
-        "https://linkedin.com" // Swap with your live profile link later
+        "https://www.linkedin.com/in/ronish-prajapati/"
       ],
       "knowsAbout": [
         "Machine Learning",
@@ -50,12 +50,7 @@ function SEORootWrapper({ children }) {
       "@type": "WebSite",
       "name": "Ronish Prajapati Portfolio",
       "url": "https://ronishprajapati.com.np",
-      "description": "Personal portfolio showcasing AI research, machine learning projects, software development, and photography by Ronish Prajapati",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://ronishprajapati.com.np/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "description": "Personal portfolio showcasing AI research, machine learning projects, software development, and photography by Ronish Prajapati"
     };
 
     // Ensure we don't accidentally append multiple script tags during hot-reloads
